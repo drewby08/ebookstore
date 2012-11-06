@@ -1,11 +1,17 @@
 package com.ebook;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.ejb.EJB;
 
-import model.User;
+//import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
+//import model.User;
+import com.ebook.service.RegistrationService;
 
 public class RegistrationBean {
+	
+	@EJB
+	private RegistrationService registrationService;
+	
 	private String firstname;
 	private String lastname;
 	private String address;
@@ -14,8 +20,9 @@ public class RegistrationBean {
 	private String creditcard;
 	
 	
-	@PersistenceContext(unitName="ebookJSF")
-	EntityManager em;
+	
+	//@PersistenceContext(unitName="ebookJSF")
+	//EntityManager em;
 	
 	public String getFirstname() {
 		return firstname;
@@ -64,21 +71,25 @@ public class RegistrationBean {
 	public void setCreditcard(String creditcard) {
 		this.creditcard = creditcard;
 	}
-
+	
+	public String register(){
+		return registrationService.register();
+	}
+/*
 	public String register(){
 		
 		em.getTransaction().begin();
 		
 		System.exit(0);
 		User userEntity = new User();
-		/*
+		
 		userEntity.setFirstname(firstname);
 		userEntity.setLastname(lastname);
 		userEntity.setAddress(address);
 		userEntity.setEmail(email);
 		userEntity.setPassword(password);
 		userEntity.setCreditcard(creditcard);
-		*/
+		
 		
 		userEntity.setFirstname("drew");
 		userEntity.setLastname("valentine");
@@ -88,12 +99,11 @@ public class RegistrationBean {
 		userEntity.setCreditcard("creditcard");
 				
 		em.persist(userEntity);
-		em.flush();
 		em.getTransaction().commit();
 		
 		return "Registered";
 		
 	}
-	
+*/
 
 }

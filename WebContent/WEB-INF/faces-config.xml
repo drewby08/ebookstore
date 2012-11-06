@@ -31,5 +31,13 @@
 			<to-view-id>/registration.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>registration.xhtml</display-name>
+		<from-view-id>/registration.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>register</from-outcome>
+			<to-view-id>/registered.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
