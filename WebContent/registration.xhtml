@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+    <ui:define name="content">
+    
+    <h:form>
+    
+	    <h:panelGrid columns="2">
+	    
+		    <h:outputText value="First Name"></h:outputText>
+		    <h:inputText value="#{registrationBean.firstname}"></h:inputText>
+		    
+		    <h:outputText value="Last Name"></h:outputText>
+		    <h:inputText value="#{registrationBean.lastname}"></h:inputText>
+		    
+		    <h:outputText value="Address"></h:outputText>
+		    <h:inputText value="#{registrationBean.address}"></h:inputText>
+		    
+		    <h:outputText value="Email Address"></h:outputText>
+		    <h:inputText value="#{registrationBean.email}"></h:inputText>
+		    
+		    <h:outputText value="Password"></h:outputText>
+		    <h:inputText value="#{registrationBean.password}"></h:inputText>
+		    
+		    <h:outputText value="Credit Card Number"></h:outputText>
+		    <h:inputText value="#{registrationBean.creditcard}"></h:inputText>
+	
+		</h:panelGrid>
+
+	</h:form>
+	
+	<h:commandButton value="Register" action="#{registrationBean.register()}" onclick="#{registrationBean.register()}"></h:commandButton>
+    </ui:define>
+</ui:composition>
+</html>
