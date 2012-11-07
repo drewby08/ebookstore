@@ -2,6 +2,8 @@ package com.ebook;
 
 import javax.ejb.EJB;
 
+import model.User;
+
 //import javax.persistence.EntityManager;
 //import javax.persistence.PersistenceContext;
 //import model.User;
@@ -73,7 +75,15 @@ public class RegistrationBean {
 	}
 	
 	public String register(){
-		return registrationService.register();
+		User userEntity = new User();
+		
+		userEntity.setFirstname(firstname);
+		userEntity.setLastname(lastname);
+		userEntity.setAddress(address);
+		userEntity.setEmail(email);
+		userEntity.setPassword(password);
+		userEntity.setCreditcard(creditcard);
+		return registrationService.register(userEntity);
 	}
 /*
 	public String register(){
