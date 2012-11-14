@@ -26,13 +26,13 @@
 		    <h:inputText value="#{registrationBean.email}"></h:inputText>
 		    
 		    <h:outputText value="Password"></h:outputText>
-		    <h:inputText value="#{registrationBean.password}"></h:inputText>
+		    <h:inputSecret value="#{registrationBean.password}"></h:inputSecret>
 		    
 		    <h:outputText value="Credit Card Number"></h:outputText>
 		    <h:inputText value="#{registrationBean.creditcard}"></h:inputText>
 	
 		</h:panelGrid>
-		<h:commandButton value="Register" action="register"></h:commandButton>
+		<h:commandButton value="Register" action="#{registrationBean.register()}"></h:commandButton>
 	</h:form>
     </ui:define>
 </ui:composition>

@@ -1,6 +1,9 @@
 package com.ebook;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import model.User;
 
@@ -74,7 +77,12 @@ public class RegistrationBean {
 		this.creditcard = creditcard;
 	}
 	
+	
 	public String register(){
+		
+
+		//create a user and try to register
+		
 		User userEntity = new User();
 		
 		userEntity.setFirstname(firstname);
@@ -83,14 +91,17 @@ public class RegistrationBean {
 		userEntity.setEmail(email);
 		userEntity.setPassword(password);
 		userEntity.setCreditcard(creditcard);
+		
+		//either true or false returned
 		return registrationService.register(userEntity);
 	}
-/*
+	
+	
+	/*
 	public String register(){
 		
-		em.getTransaction().begin();
+		//em.getTransaction().begin();
 		
-		System.exit(0);
 		User userEntity = new User();
 		
 		userEntity.setFirstname(firstname);
@@ -107,13 +118,14 @@ public class RegistrationBean {
 		userEntity.setEmail("email");
 		userEntity.setPassword("password");
 		userEntity.setCreditcard("creditcard");
-				
+		
+		
 		em.persist(userEntity);
-		em.getTransaction().commit();
+		//em.getTransaction().commit();
 		
 		return "Registered";
 		
 	}
-*/
+	*/
 
 }
